@@ -1,0 +1,17 @@
+[
+    {
+        "category_id": "1",
+        "title": "Oppo",
+        "img": "https://i.ibb.co/r3yY290/thumb.png"
+    },
+    {
+        "category_id": "2",
+        "title": "Vivo",
+        "img": "https://i.ibb.co/Gs00XqR/thumb-2.png"
+    },
+    {
+        "category_id": "3",
+        "title": "Apple",
+        "img": "https://i.ibb.co/qCMrNTs/thumb-1.png"
+    }
+]
