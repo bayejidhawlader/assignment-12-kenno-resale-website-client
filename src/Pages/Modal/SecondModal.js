@@ -12,10 +12,10 @@ const SecondModal = ({ service }) => {
     const price = form.price.value;
     const location = form.location.value;
     const phone = form.phone.value;
-    const orderCar = form.orderCar.value;
+    const orderMobile = form.orderMobile.value;
 
     const booking = {
-      orderCar: orderCar,
+      orderMobile: orderMobile,
       name,
       email,
       price,
@@ -71,29 +71,29 @@ const SecondModal = ({ service }) => {
               className="input w-full input-bordered"
             />
             <input
-              name="orderCar"
+              name="orderMobile"
               disabled
               type="text"
-              defaultValue={service.Product2[0].name}
+              defaultValue={service.ProductTwo[0].name}
               className="input w-full  input-bordered"
             />
             <input
               name="price"
               disabled
-              defaultValue={service.Product2[0].priceOffer}
+              defaultValue={service.ProductTwo[0].priceOffer}
               className="input w-full input-bordered"
             />
             <input
               name="location"
               disabled
               type="text"
-              defaultValue={service.Product2[0].location}
+              defaultValue={service.ProductTwo[0].location}
               className="input w-full  input-bordered"
             />
             <input
               name="phone"
               placeholder="Phone Number"
-              defaultValue={service.Product2[0].Mobile}
+              defaultValue={service.ProductTwo[0].Mobile}
               className="input w-full input-bordered"
             />
 

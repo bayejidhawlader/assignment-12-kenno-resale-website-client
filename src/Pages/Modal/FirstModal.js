@@ -12,11 +12,11 @@ const FirstModal = ({ service }) => {
     const price = form.price.value;
     const location = form.location.value;
     const phone = form.phone.value;
-    const orderCar = form.orderCar.value;
+    const orderMobile = form.orderMobile.value;
     const email = form.email.value;
 
     const booking = {
-      orderCar: orderCar,
+      orderMobile: orderMobile,
       name,
       price,
       location,
@@ -71,16 +71,16 @@ const FirstModal = ({ service }) => {
               className="input w-full  input-bordered"
             />
             <input
-              name="orderCar"
+              name="orderMobile"
               type="text"
               disabled
-              defaultValue={service.Product1[0].name}
+              defaultValue={service.ProductOne[0].name}
               className="input w-full input-bordered"
             />
             <input
               name="price"
               disabled
-              defaultValue={service.Product1[0]?.priceOffer}
+              defaultValue={service.ProductOne[0]?.priceOffer}
               placeholder=""
               className="input w-full input-bordered"
             />
@@ -88,13 +88,13 @@ const FirstModal = ({ service }) => {
               name="location"
               disabled
               type="text"
-              defaultValue={service.Product1[0]?.location}
+              defaultValue={service.ProductOne[0]?.location}
               className="input w-full  input-bordered"
             />
             <input
               name="phone"
               placeholder="Phone Number"
-              defaultValue={service.Product1[0]?.Mobile}
+              defaultValue={service.ProductOne[0]?.Mobile}
               className="input w-full   input-bordered"
             />
 

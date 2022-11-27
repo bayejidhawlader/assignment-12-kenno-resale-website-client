@@ -1,6 +1,11 @@
 import React from "react";
+import Loading from "../Loading/Loading";
+import Spinner from "../Spinner/Spinnner";
 
-const Blog = () => {
+const Blog = ({ isLoading }) => {
+  if (isLoading) {
+    return <Spinner></Spinner>;
+  }
   return (
     <div>
       <div>

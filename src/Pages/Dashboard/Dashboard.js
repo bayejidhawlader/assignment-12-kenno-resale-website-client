@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
-import { AuthContext } from "../../Context/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -22,7 +22,7 @@ const Dashboard = () => {
           <thead>
             <tr>
               <th></th>
-              <th>OrderName</th>
+              <th>Order Name</th>
               <th>Price</th>
               <th>location</th>
               <th>Number</th>
@@ -33,7 +33,7 @@ const Dashboard = () => {
             {bookings.map((booking, i) => (
               <tr key={booking._id}>
                 <th>{i + 1}</th>
-                <td>{booking.orderCar}</td>
+                <td>{booking.orderMobile}</td>
                 <td>{booking.price}</td>
                 <td>{booking.location}</td>
                 <td>{booking.phone}</td>

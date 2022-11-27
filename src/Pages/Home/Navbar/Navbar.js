@@ -6,13 +6,13 @@ const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handelsignOut = () => {
+  const handelesignOut = () => {
     logOut()
       .then(() => {
         navigate("/");
         loading(true);
       })
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
   };
 
   const menuItems = (
@@ -32,7 +32,7 @@ const Navbar = () => {
             <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <Link to="/signout" onClick={handelsignOut}>
+            <Link to="/signout" onClick={handelesignOut}>
               Sign Out
             </Link>
           </li>
