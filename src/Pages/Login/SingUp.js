@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import useDynamicTitle from "../../hooks/useDynamicTitle/useDynamicTitle";
+
 import Spinner from "../Shared/Spinner/Spinnner";
 
 const SingUp = () => {
@@ -20,8 +20,6 @@ const SingUp = () => {
       .catch((err) => console.error(err));
   };
 
-  // Use Title
-  useDynamicTitle("Register");
   return (
     <div className="hero">
       <div className="hero-content flex-col">

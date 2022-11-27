@@ -1,27 +1,48 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handelsignOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+        loading(true);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const menuItems = (
-    <React.Fragment>
+    <>
       <li>
         <Link to="/">Home</Link>
       </li>
-
       <li>
-        <Link to="/appoinment">Appoinment</Link>
+        <Link to="/">Advertised items</Link>
       </li>
-
       <li>
         <Link to="/blog">Blog</Link>
       </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-      <li>
-        <Link to="/singup">Sing Up</Link>
-      </li>
-    </React.Fragment>
+      {user?.email ? (
+        <>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/signout" onClick={handelsignOut}>
+              Sign Out
+            </Link>
+          </li>
+        </>
+      ) : (
+        <li>
+          <Link to="/login">login</Link>
+        </li>
+      )}
+    </>
   );
   return (
     <header>
@@ -60,11 +81,11 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
         </div>
-        <div className="navbar-end">
+        {/* <div className="navbar-end">
           <a href="Get started" className="btn">
             Get started
           </a>
-        </div>
+        </div> */}
       </div>
     </header>
   );

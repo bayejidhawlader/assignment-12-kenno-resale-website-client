@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
-import useDynamicTitle from "../../hooks/useDynamicTitle/useDynamicTitle";
+
 import Spinner from "../../Pages/Shared/Spinner/Spinnner";
 
 const Login = () => {
@@ -34,8 +34,6 @@ const Login = () => {
       .catch((error) => console.log(error));
   };
 
-  // Use Title
-  useDynamicTitle("Login");
   return (
     <div className="hero">
       <div className="hero-content">

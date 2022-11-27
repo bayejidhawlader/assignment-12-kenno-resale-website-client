@@ -21,16 +21,19 @@ const AuthProvider = ({ children }) => {
 
   // Create user for Login
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // Login with email an Pass
   const loginExitingUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Login With Google
   const logInWithGoogleProvider = (provider) => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
 
@@ -41,7 +44,8 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("Inside auth state changed", currentUser);
+      setLoading(true);
+      // console.log("Inside auth state changed", currentUser);
       setUser(currentUser);
     });
 
