@@ -5,8 +5,9 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
+
   const { data: bookings = [] } = useQuery({
-    queryKey: ["bookings", user?.email],
+    queryKey: ["bookings"],
     queryFn: async () => {
       const res = await fetch(url);
       const data = await res.json();

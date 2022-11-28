@@ -5,7 +5,7 @@ import Login from "../../Pages/Login/Login";
 import Main from "../../Layout/Main";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 import DashBoardLayout from "../../Pages/Dashboard/DashBoardLayout";
-import SingUp from "../../Pages/Login/SingUp";
+import SingUp from "../../Pages/Login/SignUp";
 import Blog from "../../Pages/Shared/Blog/Blog";
 import CatagoryItem from "../../Pages/Categoey/CatagoryItem";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";

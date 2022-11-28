@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import Spinner from "../../Shared/Spinner/Spinnner";
 
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -86,6 +87,9 @@ const Navbar = () => {
             Get started
           </a>
         </div> */}
+      </div>
+      <div>
+        <Spinner></Spinner>
       </div>
     </header>
   );

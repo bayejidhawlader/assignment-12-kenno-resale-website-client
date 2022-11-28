@@ -3,15 +3,10 @@ import { useLoaderData } from "react-router-dom";
 import SecondModal from "../Modal/SecondModal";
 import FirstModal from "../Modal/FirstModal";
 import Spinner from "../Shared/Spinner/Spinnner";
-import Loading from "../Shared/Loading/Loading";
 
 const CatagoryItem = ({ isLoading }) => {
   const service = useLoaderData();
   console.log(service);
-
-  if (isLoading) {
-    return <Spinner></Spinner>;
-  }
 
   return (
     <div className="grid lg:grid-cols-2 gap-10 my-20">

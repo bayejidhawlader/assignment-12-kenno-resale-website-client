@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { useState } from "react";
@@ -26,27 +27,33 @@ const AuthProvider = ({ children }) => {
   };
 
   // Login with email an Pass
-  const loginExitingUser = (email, password) => {
+  const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Login With Google
-  const logInWithGoogleProvider = (provider) => {
+  const GoogleProvider = (provider) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
 
   // LogOut
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
+  };
+
+  // Update User
+  const updateUser = (userInfo) => {
+    return updateProfile(auth.currentUser, userInfo);
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setLoading(true);
       // console.log("Inside auth state changed", currentUser);
       setUser(currentUser);
+      setLoading(false);
     });
 
     return () => {
@@ -58,9 +65,10 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     createUser,
-    loginExitingUser,
-    logInWithGoogleProvider,
+    signIn,
+    GoogleProvider,
     logOut,
+    updateUser,
   };
 
   return (

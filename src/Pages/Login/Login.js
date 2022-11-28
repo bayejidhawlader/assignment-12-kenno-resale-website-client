@@ -1,85 +1,162 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
-
-import Spinner from "../../Pages/Shared/Spinner/Spinnner";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const { logInWithGoogleProvider, loginExitingUser } = useContext(AuthContext);
-  const handleLogin = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
+  const history = useNavigate();
+  const location = useLocation();
+  // let { from } = location.state || { from: { pathname: "/" } };
+  const { signIn, GoogleProvider } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
-    // Login with email and pass
-    loginExitingUser(email, password)
+  const GoogleSign = new GoogleAuthProvider();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const handellogin = (data) => {
+    console.log(data);
+    signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-      })
-      .catch((err) => console.error(err));
-  };
-
-  const googleProvider = new GoogleAuthProvider();
-
-  // Sing In With Google
-  const handleGoogleSingIn = () => {
-    logInWithGoogleProvider(googleProvider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+        // from && history(from.pathname);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };
+  const handelGoogle = () => {
+    GoogleProvider(GoogleSign)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error("error", error);
+      });
+  };
+
+  // Login with email and pass
+  //   loginExitingUser(email, password)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
+  // Sing In With Google
+  // const handleGoogleSingIn = () => {
+  //   logInWithGoogleProvider(googleProvider)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
 
   return (
-    <div className="hero">
-      <div className="hero-content">
-        <form onSubmit={handleLogin} className="card-body p-0">
-          {/* Spinner */}
-          <Spinner></Spinner>
-          <h1 className="text-3xl text-white">Login</h1>
-          <div className="form-control">
+    // <div className="hero input-bordered">
+    //   <div className="hero-content">
+    //     <form onSubmit={handleLogin} className="card-body p-0">
+    //       <h1 className="text-3xl text-white">Login</h1>
+    //       <div className="form-control">
+    //         <label className="label">
+    //           <span className="label-text">Email</span>
+    //         </label>
+    //         <input
+    //           name="email"
+    //           type="text"
+    //           placeholder="Your Email"
+    //           className="input input-bordered"
+    //         />
+    //       </div>
+    //       <div className="form-control">
+    //         <label className="label">
+    //           <span className="label-text">Password</span>
+    //         </label>
+    //         <input
+    //           name="password"
+    //           type="password"
+    //           placeholder="Your Password"
+    //           className="input input-bordered"
+    //         />
+    //       </div>
+    //       <Link to="/singup" className="">
+    //         <p className="text-center pb-4">
+    //           Are you New? please
+    //           <button className="text-red-500">- Sing Up</button> To Kenno Store
+    //         </p>
+    //       </Link>
+
+    //       <button
+    //         onClick={handleGoogleSingIn}
+    //         className="border-2 border-primary p-2"
+    //       >
+    //         Login with Google
+    //       </button>
+
+    //       <div className="form-control mt-6">
+    //         <input className="btn btn-primary" type="submit" value="Login" />
+    //       </div>
+    //     </form>
+    //   </div>
+    // </div>
+
+    <div className="w-96 justify-center items-center mx-auto ">
+      <div>
+        <h2 className="text-center text-4xl my-10">Login</h2>
+        <form
+          className=" mx-auto p-10 mt-7"
+          onSubmit={handleSubmit(handellogin)}
+        >
+          <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text font-bold">Email</span>
             </label>
             <input
-              name="email"
-              type="text"
-              placeholder="Your Email"
-              className="input input-bordered"
+              type="email"
+              {...register("email", { required: true })}
+              placeholder="Email"
+              className="input input-bordered w-full max-w-xs"
             />
           </div>
-          <div className="form-control">
+          <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text font-bold">Password</span>
             </label>
             <input
-              name="password"
               type="password"
-              placeholder="Your Password"
-              className="input input-bordered"
+              {...register("password", {
+                required: "password is required",
+                minLength: {
+                  value: 6,
+                  message: "password must be 6 Character",
+                },
+              })}
+              placeholder="Password"
+              className="input input-bordered w-full max-w-xs"
             />
           </div>
           <Link to="/singup" className="">
-            <p className=" text-center pb-4">
-              Are you new? please
-              <button className=" w-100">- Register</button>
+            <p className="text-center mt-2 text-base">
+              Are you New User? please
+              <button className="text-red-500">- Sing Up </button>
             </p>
           </Link>
-
+          <input
+            className="btn btn-primary w-80  mt-10"
+            type="submit"
+            value="Login"
+          />
           <button
-            onClick={handleGoogleSingIn}
-            className="border-2 border-primary p-2"
+            onClick={handelGoogle}
+            className="btn  w-80  mt-5 font-bold text-white"
           >
-            Login with Google
+            Google
           </button>
-
-          <div className="form-control mt-6">
-            <input className="btn btn-primary" type="submit" value="Login" />
-          </div>
         </form>
       </div>
     </div>
