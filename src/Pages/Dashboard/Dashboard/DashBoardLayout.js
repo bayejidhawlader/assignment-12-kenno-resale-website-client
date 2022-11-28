@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import Navbar from "../Home/Navbar/Navbar";
+import Navbar from "../../Home/Navbar/Navbar";
 
 const DashBoardLayout = () => {
   return (
@@ -13,12 +13,15 @@ const DashBoardLayout = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboardDrawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+          <ul className="menu p-4 w-80  text-base-content">
             <li>
-              <Link to="/dashboard">My orders</Link>
+              <Link to="/dashboard">My Orders</Link>
             </li>
             <li>
-              <Link to="/dashboard/seller">All sellers</Link>
+              <Link to="/dashboard/myproduct">My Products</Link>
+            </li>
+            <li>
+              <Link to="/dashboard/seller">All Sellers</Link>
             </li>
             <li>
               <Link to="/dashboard/admin">Admin</Link>

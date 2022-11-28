@@ -3,13 +3,20 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import useToken from "../../hooks/useToken";
 
 const SingUp = () => {
   const { createUser, updateUser } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const [signupError, setSignUpError] = useState("");
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
   //user singup data set state
+
+  if (token) {
+    navigate("/");
+  }
 
   const [singUpData, setSingupData] = useState({
     email: "",
@@ -59,7 +66,7 @@ const SingUp = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("saveuser", data);
-        alert("singup successful");
+        toast("Create User Successfully");
         navigate("/");
       });
 
@@ -68,7 +75,7 @@ const SingUp = () => {
     createUser(singUpData.email, singUpData.password)
       .then((result) => {
         const user = result.user;
-        toast("user Create SuccessFully");
+        toast("Log In Successfully");
         navigate("/");
         const userInfo = {
           displayName: singUpData.name,
@@ -86,21 +93,11 @@ const SingUp = () => {
 
     const saveUser = (name, email) => {
       const user = { name, email };
-      getUserToken(email);
+      // getUserToken(email);
+      setCreatedUserEmail(email);
     };
   };
   const handelSignup = (data) => {};
-
-  const getUserToken = (email) => {
-    fetch(`http://localhost:5000/jwt?email=${email}`)
-      .then((res) => res.json())
-      .then((singUpData) => {
-        if (singUpData.accessToken) {
-          localStorage.setItem("accessToken", singUpData.accessToken);
-          navigate("/");
-        }
-      });
-  };
 
   return (
     <div className=" h-[800px] w-96 justify-center items-center mx-auto ">

@@ -13,9 +13,6 @@ const ShowMobiles = () => {
 
   return (
     <div>
-      <div>
-        <h2>ffffffffffffffffff</h2>
-      </div>
       <h1 className="text-4xl text-center font-bold">Choose Your Brand</h1>
       <div className="grid gap-3 mx-6 my-8 mb-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {mobiles.map((mobile) => (

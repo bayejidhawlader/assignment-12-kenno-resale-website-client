@@ -1,10 +1,11 @@
 [
     {
         "name": "Oppo",
+        "brandName": "Oppo",
         "picture": "https://keeno.app/storage/33182/2022_10_27_23_31_635ac07312226_upload.png",
         "ProductOne": [
             {
-                "name": "OPPO A76_6/128 INTACT",
+                "name": "OPPO A76_6/128",
                 "price": "19000",
                 "priceOffer": "12500",
                 "conditionType": "Better",
@@ -18,7 +19,7 @@
         ],
         "ProductTwo": [
             {
-                "name": "OPPO F21 Pro 8/128GB INTACT",
+                "name": "OPPO F21 Pro 8/128GB",
                 "price": "219000",
                 "priceOffer": "14500",
                 "conditionType": "Better",
@@ -33,10 +34,11 @@
     },
     {
         "name": "Vivo",
+        "brandName": "Vivo",
         "picture": "https://keeno.app/storage/33521/2022_11_06_08_10_63671793d5f63_upload.png",
         "ProductOne": [
             {
-                "name": "Vivo y85 4/64gb mob",
+                "name": "Vivo y85 4/64gb",
                 "price": "199000",
                 "priceOffer": "14800",
                 "conditionType": "Better",
@@ -50,7 +52,7 @@
         ],
         "ProductTwo": [
             {
-                "name": "Vivo Y 19",
+                "name": "Vivo Y19",
                 "price": "17900",
                 "priceOffer": "11000",
                 "conditionType": "Better",
@@ -65,10 +67,11 @@
     },
     {
         "name": "Apple",
+        "brandName": "Apple",
         "picture": "https://keeno.app/storage/33097/2022_10_24_21_41_6356b21b2bbbb_upload.png",
         "ProductOne": [
             {
-                "name": "Apple iPhone 11 64GB 100% HEALTH",
+                "name": "Apple iPhone 11 64GB",
                 "price": "119000",
                 "priceOffer": "45000",
                 "conditionType": "Better",
@@ -82,7 +85,7 @@
         ],
         "ProductTwo": [
             {
-                "name": "Apple iPhone XR 64GB 86/87% BATTERY",
+                "name": "Apple iPhone XR 64GB",
                 "price": "112000",
                 "priceOffer": "41500",
                 "conditionType": "Better",

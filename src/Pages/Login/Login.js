@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { useForm } from "react-hook-form";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const history = useNavigate();
   const location = useLocation();
-  // let { from } = location.state || { from: { pathname: "/" } };
+  const [loginUserEmail, setLoginUserEmail] = useState("");
+  const [token] = useToken(loginUserEmail);
   const { signIn, GoogleProvider } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
@@ -16,14 +18,18 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
+  if (token) {
+    navigate(from, { replace: true });
+  }
+
   const handellogin = (data) => {
     console.log(data);
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setLoginUserEmail(data.email);
         // from && history(from.pathname);
-        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };

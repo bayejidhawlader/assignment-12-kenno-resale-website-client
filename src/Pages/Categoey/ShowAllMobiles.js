@@ -13,7 +13,7 @@ const ShowAllMobiles = ({ mobile }) => {
         <p>{description}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary text-center">
-            <Link to={`/category/${_id}`}>See More</Link>
+            <Link to={`/category/${_id}`}>See Product</Link>
           </button>
         </div>
       </div>

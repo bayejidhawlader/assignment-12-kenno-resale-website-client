@@ -4,14 +4,15 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Main from "../../Layout/Main";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
-import DashBoardLayout from "../../Pages/Dashboard/DashBoardLayout";
+import DashBoardLayout from "../../Pages/Dashboard/Dashboard/DashBoardLayout";
 import SingUp from "../../Pages/Login/SignUp";
 import Blog from "../../Pages/Shared/Blog/Blog";
 import CatagoryItem from "../../Pages/Categoey/CatagoryItem";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import Dashboard from "../../Pages/Dashboard/Dashboard";
-import AllSellers from "../../Pages/Users/AllSellers";
-import Admin from "../../Pages/Admin/Admin";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import Admin from "../../Pages/Dashboard/Admin/Admin";
+import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
+import AllUsers from "../../Pages/Dashboard/Users/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -45,19 +46,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashBoardLayout></DashBoardLayout>,
+    element: (
+      <PrivateRoute>
+        <DashBoardLayout></DashBoardLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
-        element: (
-          <PrivateRoute>
-            <Dashboard></Dashboard>
-          </PrivateRoute>
-        ),
+        element: <Dashboard></Dashboard>,
       },
       {
         path: "/dashboard/seller",
-        element: <AllSellers></AllSellers>,
+        element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "/dashboard/myproduct",
+        element: <MyProducts></MyProducts>,
       },
       {
         path: "/dashboard/admin",
