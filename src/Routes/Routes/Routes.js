@@ -10,9 +10,11 @@ import Blog from "../../Pages/Shared/Blog/Blog";
 import CatagoryItem from "../../Pages/Categoey/CatagoryItem";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
-import Admin from "../../Pages/Dashboard/Admin/Admin";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import AllUsers from "../../Pages/Dashboard/Users/AllUsers";
+import AllSeller from "../../Pages/Dashboard/Users/AllSeller/AllSeller";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import AllBuyer from "../../Pages/Dashboard/AllBuyer/AllBuyer";
 
 const router = createBrowserRouter([
   {
@@ -57,16 +59,24 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
       },
       {
-        path: "/dashboard/user",
-        element: <AllUsers></AllUsers>,
+        path: "/dashboard/seller",
+        element: (
+          <AdminRoute>
+            <AllSeller></AllSeller>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/myproduct",
         element: <MyProducts></MyProducts>,
       },
       {
-        path: "/dashboard/admin",
-        element: <Admin></Admin>,
+        path: "/dashboard/user",
+        element: (
+          <AdminRoute>
+            <AllBuyer></AllBuyer>
+          </AdminRoute>
+        ),
       },
     ],
   },

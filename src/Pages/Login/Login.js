@@ -159,7 +159,7 @@ const Login = () => {
           />
           <button
             onClick={handelGoogle}
-            className="btn  w-80  mt-5 font-bold text-white"
+            className="btn w-80 mt-5 btn-secondary font-bold text-white"
           >
             Google
           </button>

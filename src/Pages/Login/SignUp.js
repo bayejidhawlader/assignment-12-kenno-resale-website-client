@@ -13,10 +13,13 @@ const SingUp = () => {
   const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
   //user singup data set state
+  // console.log("createdUserEmail", createdUserEmail);
 
-  if (token) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [navigate, token]);
 
   const [singUpData, setSingupData] = useState({
     email: "",
@@ -56,27 +59,13 @@ const SingUp = () => {
     e.preventDefault();
     // post data
 
-    fetch(`http://localhost:5000/users`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(singUpData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("saveuser", data);
-        toast("Create User Successfully");
-        navigate("/");
-      });
-
     setSignUpError("");
     // createUser(data.email, data.password)
     createUser(singUpData.email, singUpData.password)
       .then((result) => {
         const user = result.user;
         toast("Log In Successfully");
-        navigate("/");
+        // navigate("/");
         const userInfo = {
           displayName: singUpData.name,
         };
@@ -93,8 +82,22 @@ const SingUp = () => {
 
     const saveUser = (name, email) => {
       const user = { name, email };
+      // console.log("sing Up user", user);
+      fetch(`http://localhost:5000/users`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log("saveuser", data);
+          toast("Create User Successfully");
+          setCreatedUserEmail(email);
+          // navigate("/");
+        });
       // getUserToken(email);
-      setCreatedUserEmail(email);
     };
   };
   const handelSignup = (data) => {};
@@ -102,11 +105,8 @@ const SingUp = () => {
   return (
     <div className=" h-[800px] w-96 justify-center items-center mx-auto ">
       <div>
-        <h2 className="text-center text-4xl">SignUp</h2>
-        <form
-          className="border mx-auto p-10 mt-7  "
-          onSubmit={handleSubmitSingup}
-        >
+        <h2 className="text-center text-4xl my-10">Sign Up</h2>
+        <form className="border mx-auto p-10" onSubmit={handleSubmitSingup}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
               <span className="label-text font-bold">Name </span>
@@ -147,7 +147,7 @@ const SingUp = () => {
           <input className="btn btn-primary w-80  mt-10" type="submit" />
         </form>
         <p className="text-priamry font-bold">
-          Already have a Account ? Please
+          Already have a Account ? Please -
           <Link to="/login" className="text-secondary">
             login
           </Link>
