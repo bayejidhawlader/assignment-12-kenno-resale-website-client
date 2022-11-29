@@ -58,7 +58,7 @@ const SingUp = () => {
   const handleSubmitSingup = (e) => {
     e.preventDefault();
     // post data
-
+    console.log(e.target.role.value);
     setSignUpError("");
     // createUser(data.email, data.password)
     createUser(singUpData.email, singUpData.password)
@@ -71,7 +71,7 @@ const SingUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-            saveUser(singUpData.name, singUpData.email);
+            saveUser(singUpData.name, singUpData.email, e.target.role.value);
           })
           .catch((err) => console.log(err));
       })
@@ -80,9 +80,9 @@ const SingUp = () => {
         signupError(error.message);
       });
 
-    const saveUser = (name, email) => {
-      const user = { name, email };
-      // console.log("sing Up user", user);
+    const saveUser = (name, email, role) => {
+      const user = { name, email, role };
+      console.log("role", role);
       fetch(`https://server-vert-nu.vercel.app/users`, {
         method: "POST",
         headers: {
@@ -112,6 +112,9 @@ const SingUp = () => {
               <span className="label-text font-bold">Name </span>
             </label>
             <input
+              {...register("name", {
+                required: "Name is Required",
+              })}
               onChange={handleChange}
               name="name"
               type="text"
@@ -124,6 +127,9 @@ const SingUp = () => {
               <span className="label-text font-bold">Email</span>
             </label>
             <input
+              {...register("email", {
+                required: "Email is Required",
+              })}
               onChange={handleChange}
               name="email"
               type="email"
@@ -136,6 +142,9 @@ const SingUp = () => {
               <span className="label-text font-bold">Password</span>
             </label>
             <input
+              {...register("password", {
+                required: "Password is Required",
+              })}
               onChange={handleChange}
               name="password"
               type="password"
@@ -143,6 +152,22 @@ const SingUp = () => {
               className="input input-bordered w-full max-w-xs"
             />
           </div>
+
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text font-bold">Select Option</span>
+            </label>
+            <select
+              type="text"
+              name="role"
+              className="select select-bordered w-full max-w-xs my-3"
+              // {...register("role")}
+            >
+              <option value="seller">Seller</option>
+              <option value="buyer">Buyer</option>
+            </select>
+          </div>
+
           {signupError && <p className="text-red-600">{signupError}</p>}
           <input className="btn btn-primary w-80  mt-10" type="submit" />
         </form>

@@ -35,16 +35,17 @@ const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking, i) => (
-              <tr key={booking._id}>
-                <th>{i + 1}</th>
-                <td>{booking.orderMobile}</td>
-                <td>{booking.price}</td>
-                <td>{booking.location}</td>
-                <td>{booking.phone}</td>
-                <td>{booking.year}</td>
-              </tr>
-            ))}
+            {bookings?.length &&
+              bookings.map((booking, i) => (
+                <tr key={booking._id}>
+                  <th>{i + 1}</th>
+                  <td>{booking.orderMobile}</td>
+                  <td>{booking.price}</td>
+                  <td>{booking.location}</td>
+                  <td>{booking.phone}</td>
+                  <td>{booking.year}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

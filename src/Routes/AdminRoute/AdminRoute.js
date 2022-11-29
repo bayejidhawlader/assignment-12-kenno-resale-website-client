@@ -20,9 +20,3 @@ const AdminRoute = ({ children }) => {
 };
 
 export default AdminRoute;
-
-/* {user ? (
-        children
-      ) : (
-        
-      )} */

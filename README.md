@@ -1,7 +1,5 @@
-# Getting Started with Create React App
+This project was created with Second Hand Mobile [Live Website](https://assinment-12-e4680.web.app/).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+ill created a new Website for second hand rellase Mobile Phones
 
 
