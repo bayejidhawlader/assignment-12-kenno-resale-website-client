@@ -59,6 +59,10 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
       },
       {
+        path: "/dashboard/user",
+        element: <AllUsers></AllUsers>,
+      },
+      {
         path: "/dashboard/seller",
         element: (
           <AdminRoute>
@@ -71,7 +75,7 @@ const router = createBrowserRouter([
         element: <MyProducts></MyProducts>,
       },
       {
-        path: "/dashboard/user",
+        path: "/dashboard/buyer",
         element: (
           <AdminRoute>
             <AllBuyer></AllBuyer>

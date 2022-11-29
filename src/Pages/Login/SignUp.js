@@ -64,7 +64,7 @@ const SingUp = () => {
     createUser(singUpData.email, singUpData.password)
       .then((result) => {
         const user = result.user;
-        toast("Log In Successfully");
+        toast("Create User Successfully");
         // navigate("/");
         const userInfo = {
           displayName: singUpData.name,
@@ -93,7 +93,7 @@ const SingUp = () => {
         .then((res) => res.json())
         .then((data) => {
           // console.log("saveuser", data);
-          toast("Create User Successfully");
+          toast("Log In Successfully");
           setCreatedUserEmail(email);
           // navigate("/");
         });

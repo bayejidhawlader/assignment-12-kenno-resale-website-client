@@ -3,17 +3,6 @@ import React from "react";
 import toast from "react-hot-toast";
 
 const AllUsers = () => {
-  // const [allUsers, setAllUser] = useState([]);
-  // console.log(allUsers);
-  // //  load all user data
-
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/alluser")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setAllUser(data);
-  //     });
-  // }, []);
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -41,7 +30,6 @@ const AllUsers = () => {
 
   return (
     <div>
-      <h1>length:{users.length}</h1>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
