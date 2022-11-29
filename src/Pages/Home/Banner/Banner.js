@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="hero py-20">
         <div className="hero-content text-center">
           <div className="max-w-xl">
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-3xl font-bold">
               Classified platform, a Marketplace Connecting Buyers and Sellers
             </h1>
             <p className="py-6">
