@@ -11,7 +11,7 @@ const AdminRoute = ({ children }) => {
   if (loading || isAdminLoading) {
     return <progress className="progress w-56"></progress>;
   }
-  console.log(isAdmin);
+  // console.log(isAdmin);
   if (isAdmin) {
     return children;
   }

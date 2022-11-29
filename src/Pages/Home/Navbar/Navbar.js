@@ -30,7 +30,7 @@ const Navbar = () => {
       {user?.email ? (
         <>
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard/">Dashboard</Link>
           </li>
           <li>
             <Link to="/signout" onClick={handelesignOut}>

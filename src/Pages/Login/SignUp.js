@@ -58,7 +58,7 @@ const SingUp = () => {
   const handleSubmitSingup = (e) => {
     e.preventDefault();
     // post data
-    console.log(e.target.role.value);
+    // console.log(e.target.role.value);
     setSignUpError("");
     // createUser(data.email, data.password)
     createUser(singUpData.email, singUpData.password)
@@ -82,7 +82,7 @@ const SingUp = () => {
 
     const saveUser = (name, email, role) => {
       const user = { name, email, role };
-      console.log("role", role);
+      // console.log("role", role);
       fetch(`https://server-vert-nu.vercel.app/users`, {
         method: "POST",
         headers: {

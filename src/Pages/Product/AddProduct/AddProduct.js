@@ -36,7 +36,7 @@ const AddProduct = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className=" h-[800px] w-96 justify-center items-center mx-auto ">
+    <div className="h-[800px] w-96 justify-center items-center mx-auto ">
       <div>
         <h2 className="text-center text-4xl">Add a Product</h2>
         <form
