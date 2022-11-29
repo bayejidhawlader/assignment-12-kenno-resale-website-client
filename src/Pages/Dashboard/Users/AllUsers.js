@@ -6,14 +6,14 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/alluser");
+      const res = await fetch("https://server-vert-nu.vercel.app/alluser");
       const data = await res.json();
       return data;
     },
   });
 
   const handleMakeAdmin = (id) => {
-    fetch(`http://localhost:5000/alluser/admin/${id}`, {
+    fetch(`https://server-vert-nu.vercel.app/alluser/admin/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

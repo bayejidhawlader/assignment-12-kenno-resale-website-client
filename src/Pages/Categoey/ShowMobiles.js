@@ -6,7 +6,7 @@ const ShowMobiles = () => {
   const [mobiles, setMobiles] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/category`)
+    fetch(`https://server-vert-nu.vercel.app/category`)
       .then((res) => res.json())
       .then((data) => setMobiles(data));
   }, []);

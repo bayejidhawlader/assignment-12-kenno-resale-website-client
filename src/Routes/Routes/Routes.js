@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         path: "/category/:id",
         element: <CatagoryItem></CatagoryItem>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(`https://server-vert-nu.vercel.app/category/${params.id}`),
       },
     ],
   },

@@ -83,7 +83,7 @@ const SingUp = () => {
     const saveUser = (name, email) => {
       const user = { name, email };
       // console.log("sing Up user", user);
-      fetch(`http://localhost:5000/users`, {
+      fetch(`https://server-vert-nu.vercel.app/users`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
