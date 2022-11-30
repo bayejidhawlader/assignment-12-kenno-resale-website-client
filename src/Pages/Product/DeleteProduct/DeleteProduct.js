@@ -12,7 +12,7 @@ const DeleteProduct = ({ title, message, Action, data }) => {
             <label
               onClick={() => Action(data)}
               htmlFor="deleteModal"
-              className="btn btn-warning"
+              className="btn bg-red-600 border-none"
             >
               Delete
             </label>

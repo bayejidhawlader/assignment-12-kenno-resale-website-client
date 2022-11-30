@@ -36,6 +36,7 @@ const MyProduct = () => {
   };
   return (
     <div className="overflow-x-auto">
+      <h2 className="text-center text-4xl my-6">My Product</h2>
       <table className="table w-full">
         <thead>
           <tr>
@@ -78,8 +79,8 @@ const MyProduct = () => {
         <ProductDelete
           Action={proDelete}
           data={productDelete}
-          title={`Are you sure you want to delete ?`}
-          message={`if You delete ${productDelete.name}`}
+          title={`Are you sure you want to delete?`}
+          message={`If you delete ${productDelete.name} It cannot be undone!`}
         ></ProductDelete>
       )}
     </div>

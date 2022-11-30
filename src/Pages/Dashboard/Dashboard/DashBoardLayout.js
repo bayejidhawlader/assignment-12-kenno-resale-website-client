@@ -15,14 +15,14 @@ const DashBoardLayout = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile my-10">
         <input id="dashboardDrawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content ">
           <Outlet></Outlet>
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboardDrawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80  text-base-content">
+          <ul className="menu w-52 text-base-content">
             {isBuyer && (
               <>
                 <li>
