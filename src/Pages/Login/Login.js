@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { useForm } from "react-hook-form";
 import useToken from "../../hooks/useToken";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const history = useNavigate();
@@ -33,11 +34,16 @@ const Login = () => {
       })
       .catch((error) => console.log(error));
   };
+  // const saveUser = (name, email, role) => {};
   const handelGoogle = () => {
     GoogleProvider(GoogleSign)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setLoginUserEmail(user?.email);
+        // saveUser(user?.displayName, user?.email, "buyer");
+        toast.success("Successfully Login with Google");
+        navigate("/");
       })
       .catch((error) => {
         console.error("error", error);

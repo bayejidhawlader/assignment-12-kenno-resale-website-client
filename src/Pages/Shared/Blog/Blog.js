@@ -39,11 +39,14 @@ const Blog = ({ isLoading }) => {
           </div>
           <div className="collapse-content">
             <p>
-              The Prototypal Inheritance is a feature in javascript used to add
-              methods and properties in objects. It is a method by which an
-              object can inherit the properties and methods of another object.
+              Every object with its methods and properties contains an internal
+              and hidden property known as [[Prototype]]. The Prototypal
+              Inheritance is a feature in javascript used to add methods and
+              properties in objects. It is a method by which an object can
+              inherit the properties and methods of another object.
               Traditionally, in order to get and set the [[Prototype]] of an
-              object, we use Object. getPrototypeOf and Object
+              object, we use Object.getPrototypeOf and Object.setPrototypeOf.
+              Nowadays, in modern language, it is being set using __proto__
             </p>
           </div>
         </div>
@@ -77,11 +80,27 @@ const Blog = ({ isLoading }) => {
           </div>
           <div className="collapse-content">
             <p>
-              Vue provides higher customizability and hence is easier to learn
-              than Angular or React. Further, Vue has an overlap with Angular
-              and React with respect to their functionality like the use of
-              components. Hence, the transition to Vue from either of the two is
-              an easy option
+              <span className="text-lg text-red-400">Angular</span> has a steep
+              learning curve, considering it is a complete solution, and
+              mastering Angular requires you to learn associated concepts like
+              TypeScript and MVC. Even though it takes time to lea <br /> <br />
+              <span className="text-lg text-red-400">React</span> - offers a
+              Getting Started guide that should help one set up React in about
+              an hour. The documentation is thorough and complete, with
+              solutions to common issues already present on Stack Overflow.
+              React is not a complete framework and advanced features require
+              the use of third-party libraries. This makes the learning curve of
+              the core framework not so steep but depends on the path you take
+              with additional functionality. However, learning to use React does
+              not necessarily mean that you are using the best practices. <br />{" "}
+              <br />
+              <span className="text-lg text-red-400">Vue</span> - provides
+              higher customizability and hence is easier to learn than Angular
+              or React. Further, Vue has an overlap with Angular and React with
+              respect to their functionality like the use of components. Hence,
+              the transition to Vue from either of the two is an easy option.
+              However, simplicity and flexibility of Vue is a double-edged sword
+              — it allows poor code, making it difficult to debug and test.
             </p>
           </div>
         </div>

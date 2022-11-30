@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import ShowAllMobiles from "./ShowAllMobiles";
 
 const ShowMobiles = () => {

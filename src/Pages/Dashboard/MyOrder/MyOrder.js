@@ -29,6 +29,7 @@ const MyOrder = () => {
               <th>Serial NO:</th>
               <th>Product Name</th>
               <th>Price</th>
+              <th>Image</th>
               <th>location</th>
               <th>Number</th>
               <th>Meeting Location</th>

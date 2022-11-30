@@ -6,8 +6,11 @@ This project was created with Second Hand Mobile [Live Website](https://assinmen
 
 ## A buyer can purchase any product from the website
 
-## Admin can see all buyers and sellers lists by logging into his dashboard
+## I have created a route named admin
 
-## I have created a route named admin, where the admin can delete any buyer or seller from his dashboard by logging in.
+## Admin can see all buyers and sellers lists by logging into his dashboard, admin can delete any buyer or seller from his dashboard by logging in.
+
+
+## A seller can add products and can see all the products he has added
 
 

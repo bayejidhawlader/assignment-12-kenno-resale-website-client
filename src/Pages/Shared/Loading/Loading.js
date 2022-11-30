@@ -5,7 +5,7 @@ const Loading = () => {
     <section>
       <div className="flex justify-center items-center">
         <div
-          className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+          className="w-14 h-14 border-4 border-dashed rounded-full animate-spin border-theme-primary"
           role="status"
         >
           <span className="visually-hidden">Loading...</span>
