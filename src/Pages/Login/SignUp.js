@@ -155,13 +155,12 @@ const SingUp = () => {
 
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text font-bold">Select Option</span>
+              <span className="label-text font-bold">Choose Your Option</span>
             </label>
             <select
               type="text"
               name="role"
               className="select select-bordered w-full max-w-xs my-3"
-              // {...register("role")}
             >
               <option value="seller">Seller</option>
               <option value="buyer">Buyer</option>

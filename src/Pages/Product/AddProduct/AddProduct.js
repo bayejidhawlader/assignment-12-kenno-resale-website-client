@@ -15,7 +15,7 @@ const AddProduct = () => {
       location: data.location,
       description: data.discription,
     };
-    fetch(" https://used-product-market-server.vercel.app/products", {
+    fetch("http://localhost:5000/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -25,8 +25,8 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        toast.success("Data Upload  successfully");
-        navigate("/dashboard/myProduct");
+        toast.success("Product Added successfully");
+        navigate("/dashboard/myproduct");
       })
 
       .then((result) => {
@@ -36,9 +36,9 @@ const AddProduct = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="h-[800px] w-96 justify-center items-center mx-auto ">
+    <div className=" h-[800px] w-96 justify-center items-center mx-auto ">
       <div>
-        <h2 className="text-center text-4xl">Add a Product</h2>
+        <h2 className="text-center text-4xl my-6">Add a Product</h2>
         <form
           className="border mx-auto p-10 mt-7  "
           onSubmit={handleSubmit(handellogin)}
