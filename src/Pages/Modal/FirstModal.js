@@ -13,10 +13,12 @@ const FirstModal = ({ service }) => {
     const location = form.location.value;
     const phone = form.phone.value;
     const orderMobile = form.orderMobile.value;
+    const meetingLocation = form.meetingLocation.value;
     const email = form.email.value;
 
     const booking = {
       orderMobile: orderMobile,
+      meetingLocation: meetingLocation,
       name,
       price,
       location,
@@ -95,6 +97,12 @@ const FirstModal = ({ service }) => {
               name="phone"
               placeholder="Phone Number"
               defaultValue={service.ProductOne[0]?.Mobile}
+              className="input w-full   input-bordered"
+            />
+            <input
+              name="meetingLocation"
+              placeholder="Meeting Location"
+              defaultValue={service.ProductOne[0]?.meetingLocation}
               className="input w-full   input-bordered"
             />
 

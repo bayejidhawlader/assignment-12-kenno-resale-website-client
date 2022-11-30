@@ -42,7 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        element: <CatagoryItem></CatagoryItem>,
+        element: (
+          <PrivateRoute>
+            <CatagoryItem></CatagoryItem>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://server-vert-nu.vercel.app/category/${params.id}`),
       },
@@ -60,10 +64,10 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
       },
-      // {
-      //   path: "/dashboard",
-      //   element: <MyOrder></MyOrder>,
-      // },
+      {
+        path: "/dashboard/myorder",
+        element: <MyOrder></MyOrder>,
+      },
       {
         path: "/dashboard/user",
         element: <AllUsers></AllUsers>,

@@ -39,22 +39,6 @@ const AllBuyer = () => {
       });
   };
 
-  // const handleMakeAdmin = (id) => {
-  //   fetch(`http://localhost:5000/user/buyers/${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       authorization: `bearer ${localStorage.getItem("accessToken")}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.modifiedCount > 0) {
-  //         toast.success("Make Admin Successful");
-  //         refetch();
-  //       }
-  //     });
-  // };
-
   return (
     <div>
       <div className="overflow-x-auto ">
