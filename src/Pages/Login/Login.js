@@ -161,7 +161,7 @@ const Login = () => {
             onClick={handelGoogle}
             className="btn w-80 mt-5 btn-secondary font-bold text-white"
           >
-            Google
+            Log In With Google
           </button>
         </form>
       </div>

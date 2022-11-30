@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useBuyer = (email) => {
+const UseBuyer = (email) => {
   const [isBuyer, setIsBuyer] = useState(false);
   const [isBuyerLoading, setIsBuyerLoading] = useState(true);
   useEffect(() => {
@@ -17,4 +17,4 @@ const useBuyer = (email) => {
   return [isBuyer, isBuyerLoading];
 };
 
-export default useBuyer;
+export default UseBuyer;

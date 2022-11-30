@@ -168,7 +168,11 @@ const SingUp = () => {
           </div>
 
           {signupError && <p className="text-red-600">{signupError}</p>}
-          <input className="btn btn-primary w-80  mt-10" type="submit" />
+          <input
+            className="btn btn-primary w-80  mt-10"
+            type="submit"
+            value="Register Now"
+          />
         </form>
         <p className="text-priamry font-bold">
           Already have a Account ? Please -
