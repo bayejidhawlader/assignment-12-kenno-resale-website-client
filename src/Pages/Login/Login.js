@@ -16,7 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const GoogleSign = new GoogleAuthProvider();
-
+  console.log(loginUserEmail);
   const from = location.state?.from?.pathname || "/";
 
   if (token) {
@@ -39,11 +39,12 @@ const Login = () => {
     GoogleProvider(GoogleSign)
       .then((result) => {
         const user = result.user;
+        setLoginUserEmail(user.email);
         const role = "buyer";
         saveUser(user.displayName, user.email, role);
-        console.log(user);
+        console.log(user.email);
         toast.success("Successfully Login with Google");
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => {
         console.error("error", error);
@@ -52,10 +53,12 @@ const Login = () => {
 
   const saveUser = (name, email, role) => {
     const user = { name, email, role };
+    console.log(user);
     fetch(`https://server-vert-nu.vercel.app/users`, {
       method: "POST",
       headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        "content-type": "application/json",
+        // authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(user),
     })

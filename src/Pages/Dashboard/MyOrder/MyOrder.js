@@ -4,7 +4,7 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const MyOrder = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://server-vert-nu.vercel.app/bookings?email=${user?.email}`;
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings"],
@@ -42,7 +42,7 @@ const MyOrder = () => {
                     <div className="avatar online">
                       <div className="w-16 rounded-full">
                         <img
-                          // src={booking?.ProductOne[0]?.productPicture}
+                          src={booking?.ProductOne?.productPicture}
                           alt="Product"
                         />
                       </div>

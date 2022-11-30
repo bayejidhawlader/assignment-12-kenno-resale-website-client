@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useToken = (email) => {
-  // console.log("Email", email);
+  console.log("Email", email);
   const [token, setToken] = useState("");
   useEffect(() => {
     if (email) {
@@ -9,6 +9,7 @@ const useToken = (email) => {
         .then((res) => res.json())
         .then((singUpData) => {
           if (singUpData.accessToken) {
+            console.log(singUpData.accessToken);
             localStorage.setItem("accessToken", singUpData.accessToken);
             setToken(singUpData.accessToken);
           }

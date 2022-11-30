@@ -9,7 +9,7 @@ const MyProduct = () => {
     queryKey: ["products"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/products", {
+        const res = await fetch("https://server-vert-nu.vercel.app/products", {
           headers: {
             "content-type": "application/json",
           },
@@ -22,7 +22,7 @@ const MyProduct = () => {
     },
   });
   const proDelet = (product) => {
-    fetch(`http://localhost:5000/products/${product._id}`, {
+    fetch(`https://server-vert-nu.vercel.app/products/${product._id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

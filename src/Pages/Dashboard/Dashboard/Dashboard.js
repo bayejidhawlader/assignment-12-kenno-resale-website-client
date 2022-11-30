@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { user } = useContext(AuthContext);
   const [isBuyer] = useBuyer(user?.email);
   // const { user } = useContext(AuthContext);
-  // const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  // const url = `https://server-vert-nu.vercel.app/bookings?email=${user?.email}`;
 
   // const { data: bookings = [] } = useQuery({
   //   queryKey: ["bookings"],
