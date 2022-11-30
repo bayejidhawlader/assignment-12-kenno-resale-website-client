@@ -15,6 +15,7 @@ const MyOrder = () => {
         },
       });
       const data = await res.json();
+      console.log(data);
       return data;
     },
   });
@@ -41,10 +42,7 @@ const MyOrder = () => {
                   <th>
                     <div className="avatar online">
                       <div className="w-16 rounded-full">
-                        <img
-                          src={booking?.ProductOne?.productPicture}
-                          alt="Product"
-                        />
+                        <img src={booking?.productPicture} alt="Product" />
                       </div>
                     </div>
                   </th>

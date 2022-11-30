@@ -14,6 +14,7 @@ const FirstModal = ({ service }) => {
     const phone = form.phone.value;
     const orderMobile = form.orderMobile.value;
     const meetingLocation = form.meetingLocation.value;
+    const productPicture = form.productPicture.value;
     const email = form.email.value;
 
     const booking = {
@@ -24,6 +25,7 @@ const FirstModal = ({ service }) => {
       location,
       phone,
       email,
+      productPicture,
     };
 
     fetch(`https://server-vert-nu.vercel.app/bookings`, {
@@ -78,6 +80,16 @@ const FirstModal = ({ service }) => {
               defaultValue={service.ProductOne[0].name}
               className="input w-full input-bordered"
             />
+
+            <input
+              name="productPicture"
+              hidden
+              // type="file"
+              disabled
+              defaultValue={service.ProductOne[0].productPicture}
+              className="input w-full input-bordered"
+            />
+
             <input
               name="price"
               disabled
