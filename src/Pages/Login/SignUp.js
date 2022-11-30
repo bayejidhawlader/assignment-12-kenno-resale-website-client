@@ -32,7 +32,6 @@ const SingUp = () => {
     if (e.target.name === "email") {
       let isEmailValid = /\S+@\S+\.\S+/.test(e.target.value);
       fieldValid = isEmailValid;
-      // console.log(fieldValid);
     }
 
     if (e.target.name === "password") {
@@ -44,12 +43,10 @@ const SingUp = () => {
       // fieldValid = e.target.value
       let nameValid = e.target.value.length >= 2;
       fieldValid = nameValid;
-      // console.log(fieldValid)
     }
 
     if (fieldValid) {
       const newUserInfo = { ...singUpData };
-      // console.log(newUserInfo)
       newUserInfo[e.target.name] = e.target.value;
       setSingupData(newUserInfo);
     }
@@ -58,7 +55,6 @@ const SingUp = () => {
   const handleSubmitSingup = (e) => {
     e.preventDefault();
     // post data
-    // console.log(e.target.role.value);
     setSignUpError("");
     // createUser(data.email, data.password)
     createUser(singUpData.email, singUpData.password)
@@ -82,7 +78,7 @@ const SingUp = () => {
 
     const saveUser = (name, email, role) => {
       const user = { name, email, role };
-      // console.log("role", role);
+
       fetch(`https://server-vert-nu.vercel.app/users`, {
         method: "POST",
         headers: {
@@ -92,7 +88,6 @@ const SingUp = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log("saveuser", data);
           toast("Log In Successfully");
           setCreatedUserEmail(email);
           // navigate("/");

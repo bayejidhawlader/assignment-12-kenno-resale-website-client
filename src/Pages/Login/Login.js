@@ -16,7 +16,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const GoogleSign = new GoogleAuthProvider();
-  console.log(loginUserEmail);
   const from = location.state?.from?.pathname || "/";
 
   if (token) {
@@ -24,7 +23,6 @@ const Login = () => {
   }
 
   const handellogin = (data) => {
-    console.log(data);
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;

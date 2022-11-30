@@ -21,7 +21,6 @@ const AddProduct = () => {
   });
   const navigate = useNavigate();
   const handellogin = (data) => {
-    // console.log(data);
     const product = {
       name: data.name,
       price: data.price,
@@ -38,14 +37,12 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        // console.log(result);
         toast.success("Product Added successfully");
         navigate("/dashboard/myproduct");
       })
 
       .then((result) => {
         const user = result.user;
-        // console.log(user);
       })
       .catch((error) => console.log(error));
   };

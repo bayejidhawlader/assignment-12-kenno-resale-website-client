@@ -25,7 +25,7 @@ const FirstModal = ({ service }) => {
       phone,
       email,
     };
-    console.log(booking);
+
     fetch(`https://server-vert-nu.vercel.app/bookings`, {
       method: "POST",
       headers: {
@@ -35,7 +35,6 @@ const FirstModal = ({ service }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         toast.success("Product Purchase Successfully");
       });
   };

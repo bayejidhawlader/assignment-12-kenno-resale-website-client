@@ -8,7 +8,6 @@ const UseBuyer = (email) => {
       fetch(`https://server-vert-nu.vercel.app/user/buyers/${email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setIsBuyer(data.isBuyer);
           setIsBuyerLoading(false);
         });

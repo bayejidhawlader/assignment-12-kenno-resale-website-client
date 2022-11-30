@@ -8,7 +8,6 @@ const useSeller = (email) => {
       fetch(`https://server-vert-nu.vercel.app/user/sellers/${email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setIsBuyer(data.isSeller);
           setIsSellerLoading(false);
         });

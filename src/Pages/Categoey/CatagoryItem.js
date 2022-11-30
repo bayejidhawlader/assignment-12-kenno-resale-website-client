@@ -6,7 +6,6 @@ import Spinner from "../Shared/Spinner/Spinnner";
 
 const CatagoryItem = ({ isLoading }) => {
   const service = useLoaderData();
-  console.log(service);
 
   return (
     <div className="grid lg:grid-cols-2 gap-10 my-20">

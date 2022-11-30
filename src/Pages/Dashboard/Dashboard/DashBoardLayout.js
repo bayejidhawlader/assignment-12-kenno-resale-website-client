@@ -10,7 +10,6 @@ const DashBoardLayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
-  // console.log(isSeller);
   const [isBuyer] = useBuyer(user?.email);
   return (
     <div>

@@ -1,28 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../../../components/Button/PrimaryButton";
+import img404 from "../../../assets/404.jpg";
 
 const ErrorPage = () => {
   return (
-    <section className="flex items-center h-screen p-16 ">
-      <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-        <div className="max-w-md text-center">
-          <h2 className="mb-8 font-extrabold text-9xl text-dark-500">
-            <span className="sr-only">Error</span>
-            <div className="flex justify-center items-center h-full">OPPS!</div>
-          </h2>
-          <p className="text-2xl font-semibold md:text-3xl mb-8">
-            404 - Page not Found
-          </p>
-          <Link to="/">
-            <PrimaryButton classes="px-8 py-3 font-semibold rounded">
-              Back to homepage
-            </PrimaryButton>
-          </Link>
+    <section>
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage: `url(${img404})`,
+        }}
+      >
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-md">
+            <Link to="/">
+              <PrimaryButton classes="px-8 py-3 font-semibold rounded">
+                Back to homepage
+              </PrimaryButton>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
   );
 };
-
+// https://drudesk.com/sites/default/files/2018-02/404-error-page-not-found.jpg
 export default ErrorPage;
