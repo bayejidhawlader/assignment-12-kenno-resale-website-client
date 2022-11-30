@@ -15,7 +15,6 @@ const MyOrder = () => {
         },
       });
       const data = await res.json();
-      console.log(data);
       return data;
     },
   });
@@ -28,10 +27,8 @@ const MyOrder = () => {
           <thead>
             <tr>
               <th>Image</th>
-              {/* <th>Serial NO:</th> */}
               <th>Product Name</th>
               <th>Price</th>
-              {/* <th>location</th> */}
               <th>PAYMENT</th>
             </tr>
           </thead>
@@ -46,11 +43,8 @@ const MyOrder = () => {
                       </div>
                     </div>
                   </th>
-                  {/* <th>{i + 1}</th> */}
                   <td>{booking.orderMobile}</td>
                   <td>{booking.price}</td>
-                  {/* <td>{booking.location}</td> */}
-                  {/* <td>{booking.phone}</td> */}
                 </tr>
               ))}
           </tbody>

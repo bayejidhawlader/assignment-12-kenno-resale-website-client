@@ -26,9 +26,7 @@ const Login = () => {
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         setLoginUserEmail(data.email);
-        // from && history(from.pathname);
       })
       .catch((error) => console.log(error));
   };
