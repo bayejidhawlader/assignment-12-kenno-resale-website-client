@@ -34,19 +34,34 @@ const Login = () => {
       })
       .catch((error) => console.log(error));
   };
-  // const saveUser = (name, email, role) => {};
+
   const handelGoogle = () => {
     GoogleProvider(GoogleSign)
       .then((result) => {
         const user = result.user;
+        const role = "buyer";
+        saveUser(user.displayName, user.email, role);
         console.log(user);
-        setLoginUserEmail(user?.email);
-        // saveUser(user?.displayName, user?.email, "buyer");
         toast.success("Successfully Login with Google");
         navigate("/");
       })
       .catch((error) => {
         console.error("error", error);
+      });
+  };
+
+  const saveUser = (name, email, role) => {
+    const user = { name, email, role };
+    fetch(`https://server-vert-nu.vercel.app/users`, {
+      method: "POST",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast("Log In Successfully");
       });
   };
 

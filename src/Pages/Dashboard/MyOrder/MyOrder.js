@@ -26,25 +26,33 @@ const MyOrder = () => {
         <table className="table w-full">
           <thead>
             <tr>
-              <th>Serial NO:</th>
+              <th>Image</th>
+              {/* <th>Serial NO:</th> */}
               <th>Product Name</th>
               <th>Price</th>
-              <th>Image</th>
-              <th>location</th>
-              <th>Number</th>
-              <th>Meeting Location</th>
+              {/* <th>location</th> */}
+              <th>PAYMENT</th>
             </tr>
           </thead>
           <tbody>
             {bookings?.length &&
               bookings.map((booking, i) => (
                 <tr key={booking._id}>
-                  <th>{i + 1}</th>
+                  <th>
+                    <div className="avatar online">
+                      <div className="w-16 rounded-full">
+                        <img
+                          // src={booking?.ProductOne[0]?.productPicture}
+                          alt="Product"
+                        />
+                      </div>
+                    </div>
+                  </th>
+                  {/* <th>{i + 1}</th> */}
                   <td>{booking.orderMobile}</td>
                   <td>{booking.price}</td>
-                  <td>{booking.location}</td>
-                  <td>{booking.phone}</td>
-                  <td>{booking.meetingLocation}</td>
+                  {/* <td>{booking.location}</td> */}
+                  {/* <td>{booking.phone}</td> */}
                 </tr>
               ))}
           </tbody>

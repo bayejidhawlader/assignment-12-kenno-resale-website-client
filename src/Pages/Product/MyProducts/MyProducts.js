@@ -21,7 +21,7 @@ const MyProduct = () => {
       }
     },
   });
-  const proDelete = (product) => {
+  const proDelet = (product) => {
     fetch(`http://localhost:5000/products/${product._id}`, {
       method: "DELETE",
       headers: {
@@ -77,7 +77,7 @@ const MyProduct = () => {
       </table>
       {productDelete && (
         <ProductDelete
-          Action={proDelete}
+          Action={proDelet}
           data={productDelete}
           title={`Are you sure you want to delete?`}
           message={`If you delete ${productDelete.name} It cannot be undone!`}
